@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dashboard-adminuser
+
+spec:
+  selector:
+    matchLabels:
+      app: dashboard-adminuser
+
+  template:
+    metadata:
+      labels:
+        app: dashboard-adminuser
+
+    spec:
+      containers:
+      - name: dashboard-adminuser
+
+        image: welcometodockermain:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8899
